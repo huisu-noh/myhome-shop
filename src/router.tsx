@@ -4,6 +4,7 @@ import ItemDetail from './components/ItemDetail';
 import ErrorPage from './ErrorPage';
 import ItemList from './components/ItemList';
 import Event, { Cupon, Service } from './components/Event';
+import Cart from './components/Cart';
 
 const router = createBrowserRouter([
   {
@@ -28,6 +29,10 @@ const router = createBrowserRouter([
             element: <Cupon />,
           },
         ],
+      },
+      {
+        path: 'cart',
+        element: <Cart />,
       },
       {
         path: 'detail/:id',
