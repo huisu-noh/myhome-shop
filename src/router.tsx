@@ -31,12 +31,12 @@ const router = createBrowserRouter([
         ],
       },
       {
-        path: 'cart',
-        element: <Cart />,
-      },
-      {
         path: 'detail/:id',
         element: <ItemDetail />,
+      },
+      {
+        path: 'cart',
+        element: <Cart />,
       },
     ],
   },

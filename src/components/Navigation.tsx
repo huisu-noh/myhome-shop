@@ -1,4 +1,5 @@
 import { Navbar, Container, Nav } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 
 export default function Navigation() {
   return (
@@ -7,9 +8,9 @@ export default function Navigation() {
         <Container>
           <Navbar.Brand href='/'>My Home Shop</Navbar.Brand>
           <Nav className='me-auto'>
-            <Nav.Link href='/'>Home</Nav.Link>
-            <Nav.Link href='cart'>Cart</Nav.Link>
-            <Nav.Link href='event'>Event</Nav.Link>
+            <Link to={'/'}>Home</Link>
+            <Link to={'/cart'}>Cart</Link>
+            <Link to={'/event'}>Event</Link>
           </Nav>
         </Container>
       </Navbar>
