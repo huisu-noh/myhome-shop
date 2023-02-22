@@ -1,33 +1,45 @@
-import { Container, Row } from 'react-bootstrap';
-import { useState } from 'react';
+import { Col, Row } from 'react-bootstrap';
 
-import data from '../data';
-import Item from './Item';
-import axios from 'axios';
+import { useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
+import styled from 'styled-components';
+
+const Container = styled.div`
+  margin: 50px;
+  display: grid;
+  grid-gap: 15px;
+  a {
+    color: black;
+    text-decoration: none;
+  }
+`;
 
 export default function ItemList() {
-  const [shoes, setShoes] = useState(data);
+  const shoes = useSelector((state: any) => state.product);
+
   return (
     <>
       <Container>
         <Row>
-          {shoes.map((shoes) => {
-            return <Item shoes={shoes} key={shoes.id} />;
+          {shoes.map((a: any, i: any) => {
+            return (
+              <Col sm key={i}>
+                <Link to={`/detail/${i}`}>
+                  <img
+                    className='img'
+                    src={`https://codingapple1.github.io/shop/shoes${
+                      i + 1
+                    }.jpg`}
+                    alt=''
+                  />
+                  <h4>{shoes[i].title}</h4>
+                  <p>{shoes[i].price}</p>
+                </Link>
+              </Col>
+            );
           })}
         </Row>
       </Container>
-      <button
-        onClick={async () => {
-          const result = axios
-            .get(`https://codingapple1.github.io/shop/data2.json`)
-            .then((reponse) => reponse.data);
-          console.log(result);
-          let copy = [...shoes, ...(await result)];
-          setShoes(copy);
-        }}
-      >
-        버튼
-      </button>
     </>
   );
 }

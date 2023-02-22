@@ -1,6 +1,6 @@
 import { Table } from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
-import { AddCount } from '../store';
+import { AddCount } from '../store/CartSlice';
 
 export default function Cart() {
   const stock = useSelector((state: any) => {
