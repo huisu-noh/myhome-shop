@@ -14,11 +14,6 @@ const stock = createSlice({
       state[num].count++;
     },
     AddItem(state, actions) {
-      console.log(state);
-      console.log(data);
-      const num = state.findIndex((index) => index.id === actions.payload);
-      const id = data[num];
-      console.log(id);
       state.push(actions.payload);
     },
   },
